@@ -1,5 +1,5 @@
 {
-  "name": "github-jobs",
+  "name": "devjobs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gen:theme-typings": "chakra-cli tokens ./src/theme.ts",
+    "postinstall": "npm run gen:theme-typings"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@chakra-ui/cli": "^1.2.1"
   }
 }
