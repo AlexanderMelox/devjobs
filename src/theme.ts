@@ -13,7 +13,10 @@ const styles = {
     body: {
       fontSize: props.theme.fontSizes.md,
       fontFamily: `'Kumbh Sans', sans-serif`,
-      color: theme.colors.primary.veryDarkBlue,
+      color: mode(
+        theme.colors.primary.veryDarkBlue,
+        theme.colors.secondary.gray
+      )(props),
       backgroundColor: mode('secondary.lightGray', 'primary.midnight')(props),
     },
   }),
