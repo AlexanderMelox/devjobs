@@ -1,12 +1,19 @@
 import React from 'react';
-import { Link, Image } from '@chakra-ui/react';
+import { Link, Text } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import logo from '../../assets/desktop/logo.svg';
 
 const Logo = () => {
   return (
-    <Link as={RouterLink} to="/" color="secondary.white">
-      <Image src={logo} alt="devjobs" />
+    <Link
+      as={RouterLink}
+      to="/"
+      color="secondary.white"
+      _hover={{ textDecoration: 'none' }}
+    >
+      <Text fontSize="3.2rem" fontWeight="bold">
+        devjobs
+      </Text>
     </Link>
   );
 };

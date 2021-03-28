@@ -62,6 +62,7 @@ const theme = {
   },
   config: {
     useSystemColorMode: false,
+    initialColorMode: 'dark',
   },
 };
 
