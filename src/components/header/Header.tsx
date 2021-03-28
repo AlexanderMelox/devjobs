@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Link } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import headerBg from '../../assets/mobile/bg-pattern-header.svg';
 import Logo from './Logo';
 import ThemeSwitcher from './ThemeSwitcher';
