@@ -1,21 +1,42 @@
-const theme = {
-  styles: {
-    global: ({ theme }: any) => ({
-      '*, *::before, *::after': {
-        margin: 0,
-        padding: 0,
-        boxSizing: 'border-box',
+import { mode } from '@chakra-ui/theme-tools';
+
+const styles = {
+  global: (props: any) => ({
+    '*, *::before, *::after': {
+      margin: 0,
+      padding: 0,
+      boxSizing: 'border-box',
+    },
+    html: {
+      fontSize: '62.5%',
+    },
+    body: {
+      fontSize: props.theme.fontSizes.md,
+      fontFamily: `'Kumbh Sans', sans-serif`,
+      color: theme.colors.primary.veryDarkBlue,
+      backgroundColor: mode('secondary.lightGray', 'primary.midnight')(props),
+    },
+  }),
+};
+
+const components = {
+  Switch: {
+    baseStyle: ({ theme }: any) => ({
+      track: {
+        width: '10px',
+        height: '10px',
+        bg: theme.colors.secondary.white,
       },
-      html: {
-        fontSize: '62.5%',
-      },
-      body: {
-        fontSize: theme.fontSizes.md,
-        fontFamily: `'Kumbh Sans', sans-serif`,
-        color: theme.colors.primary.veryDarkBlue,
+      thumb: {
+        bg: theme.colors.primary.violet,
       },
     }),
   },
+};
+
+const theme = {
+  styles,
+  components,
   colors: {
     primary: {
       violet: '#5964E0',
@@ -40,8 +61,8 @@ const theme = {
     xl: '',
   },
   config: {
-    useSystemColorMode: true,
+    useSystemColorMode: false,
   },
-}
+};
 
-export default theme
+export default theme;
