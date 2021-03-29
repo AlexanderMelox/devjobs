@@ -22,24 +22,8 @@ const styles = {
   }),
 };
 
-const components = {
-  Switch: {
-    baseStyle: ({ theme }: any) => ({
-      track: {
-        width: '10px',
-        height: '10px',
-        bg: theme.colors.secondary.white,
-      },
-      thumb: {
-        bg: theme.colors.primary.violet,
-      },
-    }),
-  },
-};
-
-const theme = {
+const theme: any = {
   styles,
-  components,
   colors: {
     primary: {
       violet: '#5964E0',

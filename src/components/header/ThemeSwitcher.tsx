@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import sun from '../../assets/desktop/icon-sun.svg';
 import moon from '../../assets/desktop/icon-moon.svg';
-import { AnimateSharedLayout, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface Props {}
 
@@ -41,13 +41,11 @@ const Switch = (props: Props) => {
   return (
     <Label>
       <Checkbox id="test" onChange={toggleColorMode} sx={hiddenInput} />
-      <AnimateSharedLayout>
-        <Track layout colorMode={colorMode}>
-          <motion.div animate={{ x: colorMode === 'light' ? 0 : 26 }}>
-            <Thumb />
-          </motion.div>
-        </Track>
-      </AnimateSharedLayout>
+      <Track layout colorMode={colorMode}>
+        <motion.div animate={{ x: colorMode === 'light' ? 0 : 26 }}>
+          <Thumb />
+        </motion.div>
+      </Track>
     </Label>
   );
 };
