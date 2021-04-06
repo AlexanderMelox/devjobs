@@ -50,7 +50,7 @@ const Filter = (props: Props) => {
 
 const Container = ({ children, ...props }: any) => (
   <Flex
-    w="32.7rem"
+    maxW="32.7rem"
     h="8rem"
     p="1.6rem"
     m="0 auto"
