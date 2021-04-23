@@ -45,7 +45,11 @@ const theme: any = {
     sm: '0.875rem',
     md: '1.6rem',
     lg: '1.25rem',
-    xl: '',
+  },
+  radii: {
+    none: '0',
+    base: '0.6rem',
+    full: '9999px',
   },
   config: {
     useSystemColorMode: false,
