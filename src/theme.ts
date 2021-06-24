@@ -44,7 +44,7 @@ const theme: any = {
   fontSizes: {
     sm: '0.875rem',
     md: '1.6rem',
-    lg: '1.25rem',
+    lg: '2.4rem',
   },
   radii: {
     none: '0',

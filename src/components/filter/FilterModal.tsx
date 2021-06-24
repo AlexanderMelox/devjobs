@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Checkbox, Flex, Grid, Image, Input } from '@chakra-ui/react';
+import { Flex, Grid, Image, Input } from '@chakra-ui/react';
+import Checkbox from '../filter/Checkbox';
+import { PrimaryButton } from '../common/Buttons';
 import useColorTokens from '../../hooks/useColorTokens';
 import useClickOutside from '../../hooks/useClickOutside';
 import location from '../../assets/desktop/icon-location.svg';
@@ -16,7 +18,6 @@ interface Props {
 const FilterModal = ({ open = false, closeModal }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-  const tokens = useColorTokens();
 
   const focusInput = () => inputRef.current?.focus();
 
@@ -46,7 +47,10 @@ const FilterModal = ({ open = false, closeModal }: Props) => {
               ref={inputRef}
             />
           </Flex>
-          <Checkbox size="lg">Full Time Only</Checkbox>
+          <Flex flexDirection="column" p="2.4rem">
+            <Checkbox>Full time only</Checkbox>
+            <PrimaryButton mt="2.4rem">Search</PrimaryButton>
+          </Flex>
         </Container>
       </Backdrop>
     ),
