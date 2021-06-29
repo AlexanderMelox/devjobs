@@ -9,6 +9,7 @@ interface Props {
 export const PrimaryButton = ({ children, ...props }: Props) => {
   return (
     <Button
+      d="block"
       w="100%"
       h="4.8rem"
       maxW="27.9rem"

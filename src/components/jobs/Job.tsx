@@ -22,6 +22,7 @@ const Job = ({
       pos="relative"
       borderRadius=".6rem"
       color="secondary.darkGray"
+      _last={{ marginBottom: '3.2rem' }}
     >
       <Flex
         w="5rem"

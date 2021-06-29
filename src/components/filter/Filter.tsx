@@ -45,7 +45,7 @@ const Container = ({ children, ...props }: any) => (
     maxW="32.7rem"
     h="8rem"
     p="1.6rem"
-    m="0 auto 3.2rem auto"
+    m="0 auto 5.7rem auto"
     align="center"
     bgColor={useColorTokens().ui01}
     borderRadius="base"
@@ -77,7 +77,7 @@ const SearchButton = (props) => (
     h="4.8rem"
     bg="primary.violet"
     type="submit"
-    _hover={{ bg: 'primary.violet' }}
+    _hover={{ opacity: 0.9 }}
     {...props}
   />
 );
