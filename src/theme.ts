@@ -40,6 +40,8 @@ const theme: any = {
   },
   fonts: {
     primary: `'Kumbh Sans', sans-serif`,
+    heading: `'Kumbh Sans', sans-serif`,
+    body: `'Kumbh Sans', sans-serif`,
   },
   fontSizes: {
     sm: '0.875rem',

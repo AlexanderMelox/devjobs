@@ -10,7 +10,7 @@ interface Props {}
 const Filter = (props: Props) => {
   const tokens = useColorTokens();
   const inputRef = useRef<HTMLInputElement>(null);
-  const [isModalOpen, setItModalOpen] = useState(true);
+  const [isModalOpen, setItModalOpen] = useState(false);
 
   const focusInput = () => inputRef.current?.focus();
 
@@ -45,7 +45,7 @@ const Container = ({ children, ...props }: any) => (
     maxW="32.7rem"
     h="8rem"
     p="1.6rem"
-    m="0 auto"
+    m="0 auto 3.2rem auto"
     align="center"
     bgColor={useColorTokens().ui01}
     borderRadius="base"
