@@ -18,7 +18,7 @@ const Container = ({ children }: { children: React.ReactNode }) => (
   <Flex
     align="center"
     justify="space-between"
-    minHeight={['13.6rem', '16rem']}
+    h={['13.6rem', '16rem']}
     p={['3.2rem 2.4rem 7.2rem', '4.2rem 4rem 8.6rem']}
     bgImage={[`url(${headerBgMobile})`, `url(${headerBgTablet})`]}
     bgRepeat="no-repeat"
