@@ -4,14 +4,18 @@ import {
   Flex,
   Input,
   Image,
-  useMediaQuery
+  useMediaQuery,
+  Grid
 } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
 import useColorTokens from '../../hooks/useColorTokens';
 import filter from '../../assets/mobile/icon-filter.svg';
-import search from '../../assets/desktop/icon-search.svg';
+import searchDark from '../../assets/desktop/icon-search-dark.svg';
+import searchLight from '../../assets/desktop/icon-search-light.svg';
 import location from '../../assets/desktop/icon-location.svg';
 import FilterModal from './FilterModal';
+import Checkbox from './Checkbox';
+import { PrimaryButton } from '../common/Buttons';
 
 interface Props {}
 
@@ -51,7 +55,7 @@ const Filter = (props: Props) => {
   const largeFilter = (
     <Container maxW="100%" p="0" align="stretch">
       <FilterGroup>
-        <Image src={search} />
+        <Image src={searchDark} />
         <Input
           paddingLeft="1.6rem"
           ref={inputRef}
@@ -70,7 +74,15 @@ const Filter = (props: Props) => {
           color={tokens.inputTextColor}
         />
       </FilterGroup>
-      <Flex p="0 1.6rem 0 2rem">full time & search</Flex>
+      <Flex
+        p="0 1.6rem 0 2rem"
+        align="center"
+        justify="space-between"
+        minW="25.2rem"
+      >
+        <Checkbox minW="10.8rem">Full Time</Checkbox>
+        <PrimaryButton w={['8rem']}>Search</PrimaryButton>
+      </Flex>
     </Container>
   );
 
@@ -113,7 +125,7 @@ const FilterButton = props => (
 const SearchButton = props => (
   <IconButton
     aria-label="Search"
-    icon={<Image w="2rem" h="2rem" src={search} />}
+    icon={<Image w="2rem" h="2rem" src={searchLight} />}
     minW="4.8rem"
     w="4.8rem"
     h="4.8rem"

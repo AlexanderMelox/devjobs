@@ -5,15 +5,16 @@ import checkSVG from '../../assets/desktop/icon-check.svg';
 
 interface Props {
   children: React.ReactNode;
+  [key: string]: any;
 }
 
-const Checkbox = ({ children }: Props) => {
+const Checkbox = ({ children, ...props }: Props) => {
   const [checked, setChecked] = useState(false);
 
-  const handleCheckboxChange = (event) => setChecked(event.target.checked);
+  const handleCheckboxChange = event => setChecked(event.target.checked);
 
   return (
-    <Flex>
+    <Flex {...props}>
       <chakra.label cursor="pointer">
         <chakra.input
           checked={checked}
