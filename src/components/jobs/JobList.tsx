@@ -9,8 +9,12 @@ interface Props {
 
 const JobList = ({ jobs = [] }: Props) => {
   return (
-    <Grid templateRows="1fr">
-      {jobs.map((job) => (
+    <Grid
+      templateColumns={['1fr', '1fr 1fr']}
+      templateRows="1fr"
+      columnGap={[null, '1.1rem']}
+    >
+      {jobs.map(job => (
         <Job key={job.id} job={job} />
       ))}
     </Grid>

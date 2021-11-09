@@ -53,7 +53,7 @@ const Filter = (props: Props) => {
   );
 
   const largeFilter = (
-    <Container maxW="100%" p="0" align="stretch">
+    <Container>
       <FilterGroup>
         <Image src={searchDark} />
         <Input
@@ -64,13 +64,13 @@ const Filter = (props: Props) => {
           color={tokens.inputTextColor}
         />
       </FilterGroup>
-      <FilterGroup>
+      <FilterGroup maxW="30rem">
         <Image src={location} />
         <Input
           paddingLeft="1.6rem"
           ref={inputRef}
           variant="unstyled"
-          placeholder="Filter by title..."
+          placeholder="Filter by location..."
           color={tokens.inputTextColor}
         />
       </FilterGroup>
@@ -79,9 +79,13 @@ const Filter = (props: Props) => {
         align="center"
         justify="space-between"
         minW="25.2rem"
+        maxWidth="34.5rem"
+        grow="1"
       >
         <Checkbox minW="10.8rem">Full Time</Checkbox>
-        <PrimaryButton w={['8rem']}>Search</PrimaryButton>
+        <PrimaryButton w="8rem" maxW="12.3rem">
+          Search
+        </PrimaryButton>
       </Flex>
     </Container>
   );
@@ -96,13 +100,14 @@ const Filter = (props: Props) => {
 
 const Container = ({ children, ...props }: any) => (
   <Flex
-    maxW="32.7rem"
+    maxW={['32.7rem', '100%']}
     h="8rem"
-    p="1.6rem"
+    p={['1.6rem', '0']}
     m="0 auto 5.7rem auto"
-    align="center"
+    align={['center', 'stretch']}
     bgColor={useColorTokens().ui01}
     borderRadius="base"
+    justify="stretch"
     {...props}
   >
     {children}
@@ -136,8 +141,10 @@ const SearchButton = props => (
   />
 );
 
-const FilterGroup = ({ children }) => (
+const FilterGroup = ({ children, ...props }) => (
   <Flex
+    {...props}
+    grow="1"
     p="0 2.4rem 0 2.8rem"
     borderRight="1px"
     borderColor={useColorModeValue('#E2E6EA', '#2A3342')}
