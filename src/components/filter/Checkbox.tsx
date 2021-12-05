@@ -13,6 +13,11 @@ const Checkbox = ({ children, ...props }: Props) => {
 
   const handleCheckboxChange = event => setChecked(event.target.checked);
 
+  const checkBoxBgColor = useColorModeValue(
+    checked ? 'primary.violet' : 'rgba(25,32,45, .1)',
+    checked ? 'primary.violet' : 'rgba(255,255,255,.1)'
+  );
+
   return (
     <Flex {...props}>
       <chakra.label cursor="pointer">
@@ -38,14 +43,16 @@ const Checkbox = ({ children, ...props }: Props) => {
             w="2.4rem"
             h="2.4rem"
             borderRadius="3px"
-            bgColor={useColorModeValue(
-              'rgba(25,32,45, .1)',
-              'rgba(255,255,255,.1)'
-            )}
+            bgColor={checkBoxBgColor}
           >
             {checked && <Img src={checkSVG} />}
           </Flex>
-          <Text d="inline" fontWeight="bold" ml="1.6rem">
+          <Text
+            d="inline"
+            fontWeight="bold"
+            ml="1.6rem"
+            color={useColorModeValue('primary.veryDarkBlue', 'white')}
+          >
             {children}
           </Text>
         </Flex>

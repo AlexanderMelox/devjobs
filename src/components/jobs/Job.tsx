@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Job = ({
-  job: { id, company, logoBackground, position, postedAt, contract, location },
+  job: { id, company, logoBackground, position, postedAt, contract, location }
 }: Props) => {
   const { ui01, text01 } = useColorTokens();
 
@@ -17,12 +17,10 @@ const Job = ({
     <Flex
       direction="column"
       bgColor={ui01}
-      mb="5rem"
       p="4.9rem 3.2rem 3.2rem"
       pos="relative"
       borderRadius=".6rem"
       color="secondary.darkGray"
-      _last={{ marginBottom: '3.2rem' }}
     >
       <Flex
         w="5rem"

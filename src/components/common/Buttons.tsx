@@ -15,6 +15,7 @@ export const PrimaryButton = ({ children, ...props }: Props) => {
       maxW="27.9rem"
       bgColor="primary.violet"
       color="secondary.white"
+      _hover={{ bgColor: 'primary.lightViolet' }}
       {...props}
     >
       {children}

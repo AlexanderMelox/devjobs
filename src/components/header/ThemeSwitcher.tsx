@@ -5,7 +5,7 @@ import {
   Image,
   useColorMode,
   Checkbox,
-  Box,
+  Box
 } from '@chakra-ui/react';
 import sun from '../../assets/desktop/icon-sun.svg';
 import moon from '../../assets/desktop/icon-moon.svg';
@@ -32,7 +32,7 @@ const hiddenInput = {
   padding: '0px',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
-  position: 'absolute',
+  position: 'absolute'
 };
 
 const Switch = (props: Props) => {
@@ -64,6 +64,12 @@ const Track = ({ children }: any) => (
     bgColor="secondary.white"
     align="center"
     px="4px"
+    sx={{
+      '&:hover .theme-switcher-thumb': {
+        transition: 'all .2s',
+        bg: 'primary.lightViolet'
+      }
+    }}
   >
     {children}
   </Flex>
@@ -71,10 +77,12 @@ const Track = ({ children }: any) => (
 
 const Thumb = () => (
   <Box
+    className="theme-switcher-thumb"
     width="1.4rem"
     height="1.4rem"
     borderRadius="50%"
     bgColor="primary.violet"
+    transition="all .2s"
   />
 );
 

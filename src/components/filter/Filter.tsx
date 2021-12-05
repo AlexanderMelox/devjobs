@@ -4,8 +4,7 @@ import {
   Flex,
   Input,
   Image,
-  useMediaQuery,
-  Grid
+  useMediaQuery
 } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
 import useColorTokens from '../../hooks/useColorTokens';
@@ -21,6 +20,7 @@ interface Props {}
 
 const Filter = (props: Props) => {
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
+  const [isLargerThan900] = useMediaQuery('(min-width: 900px)');
   const tokens = useColorTokens();
   const inputRef = useRef<HTMLInputElement>(null);
   const [isModalOpen, setItModalOpen] = useState(false);
@@ -82,8 +82,10 @@ const Filter = (props: Props) => {
         maxWidth="34.5rem"
         grow="1"
       >
-        <Checkbox minW="10.8rem">Full Time</Checkbox>
-        <PrimaryButton w="8rem" maxW="12.3rem">
+        <Checkbox minW="10.8rem">
+          Full Time {isLargerThan900 ? 'Only' : ''}
+        </Checkbox>
+        <PrimaryButton w={['8rem', null, '12.3rem']} maxW="12.3rem">
           Search
         </PrimaryButton>
       </Flex>
@@ -100,10 +102,9 @@ const Filter = (props: Props) => {
 
 const Container = ({ children, ...props }: any) => (
   <Flex
-    maxW={['32.7rem', '100%']}
     h="8rem"
     p={['1.6rem', '0']}
-    m="0 auto 5.7rem auto"
+    m={['0 auto 5.7rem auto', '0 auto 7rem auto']}
     align={['center', 'stretch']}
     bgColor={useColorTokens().ui01}
     borderRadius="base"
