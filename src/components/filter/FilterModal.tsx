@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Flex, Grid, Image, Input } from '@chakra-ui/react';
 import Checkbox from '../filter/Checkbox';
@@ -21,7 +21,14 @@ const FilterModal = ({ open = false, closeModal }: Props) => {
 
   const focusInput = () => inputRef.current?.focus();
 
-  useClickOutside({ ref: modalRef, condition: open }, closeModal);
+  useClickOutside({ ref: modalRef, condition: open }, () => {
+    document.body.style.overflow = 'scroll';
+    closeModal();
+  });
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+  }, []);
 
   return createPortal(
     open && (

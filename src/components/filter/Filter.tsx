@@ -27,7 +27,10 @@ const Filter = (props: Props) => {
 
   const focusInput = () => inputRef.current?.focus();
 
-  const openFilterModal = () => setItModalOpen(true);
+  const openFilterModal = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    setItModalOpen(true);
+  };
 
   const closeModal = () => setItModalOpen(false);
 
@@ -46,7 +49,8 @@ const Filter = (props: Props) => {
           color={tokens.inputTextColor}
         />
         <FilterButton onClick={openFilterModal} />
-        <SearchButton />
+
+        <SearchButton type="submit" />
       </Container>
       <FilterModal open={isModalOpen} closeModal={closeModal} />
     </>
@@ -62,6 +66,7 @@ const Filter = (props: Props) => {
           variant="unstyled"
           placeholder="Filter by title..."
           color={tokens.inputTextColor}
+          caretColor="red"
         />
       </FilterGroup>
       <FilterGroup maxW="30rem">
@@ -85,7 +90,11 @@ const Filter = (props: Props) => {
         <Checkbox minW="10.8rem">
           Full Time {isLargerThan900 ? 'Only' : ''}
         </Checkbox>
-        <PrimaryButton w={['8rem', null, '12.3rem']} maxW="12.3rem">
+        <PrimaryButton
+          w={['8rem', null, '12.3rem']}
+          maxW="12.3rem"
+          type="submit"
+        >
           Search
         </PrimaryButton>
       </Flex>
