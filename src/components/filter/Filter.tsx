@@ -25,6 +25,10 @@ const Filter = (props: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isModalOpen, setItModalOpen] = useState(false);
 
+  const [jobTitle, setJobTitle] = useState('');
+  const [jobLocation, setJobLocation] = useState('');
+  const [isFullTime, setIsFullTime] = useState(false);
+
   const focusInput = () => inputRef.current?.focus();
 
   const openFilterModal = (event: React.SyntheticEvent) => {
@@ -36,7 +40,7 @@ const Filter = (props: Props) => {
 
   const onSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log('submit');
+    console.log({ jobLocation, jobTitle, isFullTime });
   };
 
   const mobileFilter = (
@@ -47,12 +51,22 @@ const Filter = (props: Props) => {
           variant="unstyled"
           placeholder="Filter by title..."
           color={tokens.inputTextColor}
+          value={jobTitle}
+          onChange={e => setJobTitle(e.target.value)}
         />
         <FilterButton onClick={openFilterModal} />
 
         <SearchButton type="submit" />
       </Container>
-      <FilterModal open={isModalOpen} closeModal={closeModal} />
+      <FilterModal
+        open={isModalOpen}
+        closeModal={closeModal}
+        jobLocation={jobLocation}
+        setJobLocation={setJobLocation}
+        isFullTime={isFullTime}
+        setIsFullTime={setIsFullTime}
+        onSubmit={onSubmit}
+      />
     </>
   );
 
@@ -63,10 +77,11 @@ const Filter = (props: Props) => {
         <Input
           paddingLeft="1.6rem"
           ref={inputRef}
+          value={jobTitle}
+          onChange={e => setJobTitle(e.target.value)}
           variant="unstyled"
           placeholder="Filter by title..."
           color={tokens.inputTextColor}
-          caretColor="red"
         />
       </FilterGroup>
       <FilterGroup maxW="30rem">
@@ -74,6 +89,8 @@ const Filter = (props: Props) => {
         <Input
           paddingLeft="1.6rem"
           ref={inputRef}
+          value={jobLocation}
+          onChange={e => setJobLocation(e.target.value)}
           variant="unstyled"
           placeholder="Filter by location..."
           color={tokens.inputTextColor}
@@ -87,7 +104,11 @@ const Filter = (props: Props) => {
         maxWidth="34.5rem"
         grow="1"
       >
-        <Checkbox minW="10.8rem">
+        <Checkbox
+          checked={isFullTime}
+          onChange={e => setIsFullTime(e.target.checked)}
+          minW="10.8rem"
+        >
           Full Time {isLargerThan900 ? 'Only' : ''}
         </Checkbox>
         <PrimaryButton

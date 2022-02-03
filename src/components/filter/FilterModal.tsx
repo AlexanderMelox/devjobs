@@ -13,9 +13,22 @@ const modalRoot = document.getElementById('modal-root') as HTMLElement;
 interface Props {
   open: boolean;
   closeModal: Function;
+  jobLocation: string;
+  setJobLocation: Function;
+  isFullTime: boolean;
+  setIsFullTime: Function;
+  onSubmit: Function;
 }
 
-const FilterModal = ({ open = false, closeModal }: Props) => {
+const FilterModal = ({
+  open = false,
+  closeModal,
+  jobLocation = '',
+  setJobLocation,
+  isFullTime = false,
+  setIsFullTime,
+  onSubmit
+}: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -51,12 +64,26 @@ const FilterModal = ({ open = false, closeModal }: Props) => {
               transform="translateY(2px)"
               variant="unstyled"
               placeholder="Filter by location..."
+              value={jobLocation}
+              onChange={e => setJobLocation(e.target.value)}
               ref={inputRef}
             />
           </Flex>
           <Flex flexDirection="column" p="2.4rem">
-            <Checkbox>Full time only</Checkbox>
-            <PrimaryButton mt="2.4rem">Search</PrimaryButton>
+            <Checkbox
+              checked={isFullTime}
+              onChange={event => setIsFullTime(event.target.checked)}
+            >
+              Full time only
+            </Checkbox>
+            <PrimaryButton
+              type="submit"
+              onClick={onSubmit}
+              onSubmit={onSubmit}
+              mt="2.4rem"
+            >
+              Search
+            </PrimaryButton>
           </Flex>
         </Container>
       </Backdrop>

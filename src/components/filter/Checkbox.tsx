@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Flex, chakra, Text, Img } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
 import checkSVG from '../../assets/desktop/icon-check.svg';
 
 interface Props {
   children: React.ReactNode;
+  checked: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   [key: string]: any;
 }
 
-const Checkbox = ({ children, ...props }: Props) => {
-  const [checked, setChecked] = useState(false);
-
-  const handleCheckboxChange = event => setChecked(event.target.checked);
-
+const Checkbox = ({ children, checked, onChange, ...props }: Props) => {
   const checkBoxBgColor = useColorModeValue(
     checked ? 'primary.violet' : 'rgba(25,32,45, .1)',
     checked ? 'primary.violet' : 'rgba(255,255,255,.1)'
@@ -23,7 +21,7 @@ const Checkbox = ({ children, ...props }: Props) => {
       <chakra.label cursor="pointer">
         <chakra.input
           checked={checked}
-          onChange={handleCheckboxChange}
+          onChange={onChange}
           type="checkbox"
           borderWidth="0"
           clip="rect(0 0 0 0)"
